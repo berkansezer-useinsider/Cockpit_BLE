@@ -93,10 +93,11 @@
        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯            
             display-name = "Colemak";
             bindings = <
-                &kp ESC        &kp Q      &kp W       &kp F       &kp P              &kp G                           &kp J &kp L  &kp U                 &kp Y          &kp LS(NON_US_HASH) &kp BSPC
-                &kp LCTRL      &kp A      &kp R       &kp S       &lt _NAVIGATION T  &kp D                           &kp H &kp N  &kp E                 &kp SQT        &kp O               &kp LS(N2)
-                &ht LSHFT CLCK &ht LALT Z &ht LCTRL X &ht LSHFT C &kp V              &kp B                           &kp K &kp M  &ht RSHFT NON_US_HASH &ht RCTRL FSLH &ht LALT RS(N7)     &ht RSHFT RET
-                                    &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &lt _SPACE_RIGHT SPACE          &mo _RAISE     &kp RIGHT_GUI
+                &kp ESC      &kp Q           &kp W   &kp E   &kp R   &kp T             &kp Y &kp U  &kp I    &kp O           &kp P           &kp BSPC
+                &kp TAB      &kp A           &kp S   &kp D   &kp F   &kp G             &kp H &kp J  &kp K    &kp L           &kp SEMI        &kp SQT
+                &kp LSHFT    &kp LCTRL       &kp Z   &kp X   &kp C   &kp V             &kp B &kp N  &kp M    &kp COMMA       &kp DOT         &kp FSLH
+                                    &kp LCMD      &mo _LOWER      &kp SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &kp RET     &mo _RAISE      &kp RALT
+                                                         
             >;
             sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
@@ -113,10 +114,10 @@
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯    
             display-name = "Lower";        
             bindings = <
-                &kp ESC  &trans  &trans   &trans        &trans          &trans                        &kp RS(N8)  &kp RS(N9)      &kp RS(N0)        &kp RS(N6)           &kp RA(EQUAL)  &trans
-                &trans   &trans  &trans   &trans        &trans          &trans                        &kp RA(N7)  &kp RA(N0)      &kp PLUS          &kp RA(N4)           &kp RA(N3)     &kp GRAVE
-                &trans   &trans  &trans   &trans        &trans          &trans                        &kp RA(N8)  &kp RA(N9)      &kp NON_US_BSLH   &kp RS(NON_US_BSLH)  &kp RA(MINUS)  &trans
-                         &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE         &kp C_PREV   &kp C_NEXT          &kp RET      &mo _RAISE     &kp RIGHT_GUI
+                &kp ESC    &kp N1        &kp N2          &kp N3          &kp N4          &kp N5              &kp N6    &kp N7    &kp N8    &kp N9     &kp N0     &kp BSPC
+                &kp TAB    &kp RC(UP)    &kp RC(LEFT)    &kp RC(RIGHT)   &kp LEFT        &kp RIGHT           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp N9     &kp N0
+                &kp LSHFT  &kp C_PREV    &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &kp PSCRN  &kp RSHFT
+                                          &trans      &trans      &kp SPACE                     &kp RET     &mo _RAISE      &trans
             >;
             
             
@@ -134,10 +135,10 @@
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯   
             display-name = "Raise";         
             bindings = <
-                &kp ESC      &kp AMPS    &kp N1    &kp N2        &kp N3         &kp KP_MINUS                      &kp F1  &kp F2                  &kp F3            &kp F4       &trans   &kp DEL
-                &trans       &kp MINUS   &kp N4    &kp N5        &kp N6         &kp KP_PLUS                       &kp F5  &kp F6                  &kp F7            &kp F8       &trans   &trans
-                &caps_word   &kp PRCNT   &kp N7    &kp N8        &kp N9         &kp N0                            &kp F9  &kp F10                 &kp F11           &kp F12      &trans   &trans
-                                         &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &lt _SPACE_RIGHT SPACE          &mo _RAISE     &kp RIGHT_GUI
+                &trans &kp EXCL              &kp AT          &kp HASH        &kp DLLR                &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK   &kp LPAR    &kp RPAR   &kp BSPC
+                &trans &kp RC(LA(LEFT))      &kp RC(LA(U))   &kp RC(LA(I))   &kp RC(LA(RIGHT))       &kp BSLH   &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT    &kp BSLH   &kp GRAVE
+                &trans &kp RC(LA(RET))       &kp RC(LA(J))   &kp RC(LA(K))   &kp RC(LA(RET))         &kp DQT    &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC    &kp PIPE   &kp TILDE
+                                         &trans  &mo 3 &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp SPACE  &trans   &trans
             >;
 
         };
@@ -212,9 +213,9 @@
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯    
             display-name = "Adjust";        
             bindings = <
-                &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG              &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4        &bt BT_CLR
-                &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none                        &none        &none         &none        &ext_power EP_ON   &ext_power EP_OFF   &ext_power EP_TOG
-                &none           &none           &none           &none           &none &none                        &sys_reset   &bootloader   &none        &out OUT_USB       &out OUT_BLE        &out OUT_TOG
+                &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG            &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4        &bt BT_CLR
+                &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none         &none              &none        &none         &none        &ext_power EP_ON   &ext_power EP_OFF   &ext_power EP_TOG
+                &none           &none           &none           &none           &none         &none              &sys_reset       &bootloader   &none        &out OUT_USB       &out OUT_BLE        &out OUT_TOG
                                                 &none           &none           &none         &none      &none     &none        &none        &none
             >;
         };
