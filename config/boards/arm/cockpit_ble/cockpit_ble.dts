@@ -7,6 +7,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/regulator/nrf5x.h>
 #include "cockpit_ble_oled.dtsi"
 #include "cockpit_ble_led_strip.dtsi"
 #include "cockpit_ble_flash.dtsi"
@@ -145,4 +146,9 @@
 
 zephyr_udc0: &usbd {
     status = "okay";
+};
+
+/* Enable DCDC mode for power efficiency */
+&reg1 {
+    regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
 };
