@@ -103,18 +103,18 @@
         // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
         // │ ESC  │  1   │  2   │  3   │  4   │  5   │                          │  6   │  7   │  8   │  9   │  0   │ BSPC │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │ TAB  │ C-UP │C-LEFT│C-RGHT│ LEFT │ RGHT │                          │ LEFT │ DOWN │  UP  │ RGHT │  9   │  0   │
+        // │ TAB  │ C-UP │C-LEFT│C-RGHT│ LEFT │ RGHT │                          │ LEFT │ DOWN │  UP  │ RGHT │      │      │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │ SHFT │ PREV │ NEXT │VOL_DN│VOL_UP│ PLAY │                          │ HOME │ END  │ PGUP │ PGDN │PSCRN │ SHFT │
+        // │ SHFT │  ~   │ NEXT │VOL_DN│VOL_UP│ PLAY │                          │ HOME │ END  │ PGUP │ PGDN │      │      │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │      │      │ SPACE  │ │        ││        │ │  RET   │RAISE │      │
+        //                      │  CMD │      │  ALT   │ │        ││        │ │  RET   │RAISE │ RALT │
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Lower";        
             bindings = <
                 &kp ESC    &kp N1        &kp N2          &kp N3          &kp N4          &kp N5              &kp N6    &kp N7    &kp N8    &kp N9     &kp N0     &kp BSPC
-                &kp TAB    &kp RC(UP)    &kp RC(LEFT)    &kp RC(RIGHT)   &kp LEFT        &kp RIGHT           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp N9     &kp N0
-                &kp LSHFT  &kp TILDE     &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &kp PSCRN  &kp RSHFT
-                                          &trans      &trans      &kp SPACE                     &kp RET     &mo _RAISE      &trans
+                &kp TAB    &kp RC(UP)    &kp RC(LEFT)    &kp RC(RIGHT)   &kp LEFT        &kp RIGHT           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans     &trans
+                &kp LSHFT  &kp TILDE     &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &trans     &trans
+                                          &kp LCMD      &trans      &kp LALT                     &kp RET     &mo _RAISE      &kp RALT
             >;
             
             
@@ -128,14 +128,14 @@
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
         // │      │ RECT │ RECT │ RECT │ RECT │  "   │                          │  _   │  +   │  {   │  }   │  |   │  ~   │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │      │      │ SPACE  │ │  PLAY  ││  MUTE  │ │ SPACE  │      │      │
+        //                      │  CMD │      │ SPACE  │ │  PLAY  ││  MUTE  │ │  RET   │      │ RALT │
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Raise";
             bindings = <
                 &trans &kp EXCL              &kp AT          &kp HASH        &kp DLLR                &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK   &kp LPAR    &kp RPAR   &kp BSPC
                 &trans &kp RC(LA(LEFT))      &kp RC(LA(U))   &kp RC(LA(I))   &kp RC(LA(RIGHT))       &kp BSLH   &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT    &kp BSLH   &kp GRAVE
                 &trans &kp RC(LA(RET))       &kp RC(LA(J))   &kp RC(LA(K))   &kp RC(LA(RET))         &kp DQT    &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC    &kp PIPE   &kp TILDE
-                                         &trans  &trans &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp SPACE  &trans   &trans
+                                         &kp LCMD  &trans &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp RET  &trans   &kp RALT
             >;
 
         };
