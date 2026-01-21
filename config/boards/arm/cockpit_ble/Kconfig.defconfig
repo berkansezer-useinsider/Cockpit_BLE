@@ -52,4 +52,14 @@ config ZMK_BLE
 config ZMK_USB
 	default y
 
+if ZMK_RGB_UNDERGLOW
+
+config SPI
+	default y
+
+config LED_STRIP
+	default y
+
+endif # ZMK_RGB_UNDERGLOW
+
 endif # BOARD_COCKPIT_BLE
