@@ -16,10 +16,7 @@
 #define _BASE          0
 #define _LOWER         1
 #define _RAISE         2
-#define _SPACE_RIGHT   3
-#define _SPACE_LEFT    4
-#define _NAVIGATION    5
-#define _ADJUST        6
+#define _ADJUST        3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space
 &lt {
@@ -38,8 +35,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <1 2>; //lower and raise
-            then-layer = <6>;  // adjust
+            if-layers = <_LOWER _RAISE>; // lower and raise
+            then-layer = <_ADJUST>;      // adjust
         };
     };
 
@@ -83,15 +80,15 @@
         compatible = "zmk,keymap";
         default_layer {
        // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-       // │  ESC │  Q   │  W   │  F   │  P   │  G   │                          │  J   │  L   │  U   │  Y   │   ;  │ BSPC │
+       // │  ESC │  Q   │  W   │  E   │  R   │  T   │                          │  Y   │  U   │  I   │  O   │  P   │ BSPC │
        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-       // │ CTRL │  A   │  R   │  S   │NAV T │  D   │                          │  H   │  N   │  E   │  I   │  O   │   '  │
+       // │  TAB │  A   │  S   │  D   │  F   │  G   │                          │  H   │  J   │  K   │  L   │  ;   │  '   │
        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-       // │SFT_CL│ALT Z │CTL X │SFT C │  V   │  B   │         (ENCODERS)       │  K   │  M   │SFT , │CTL . │ALT / │ ENT  │
+       // │ SHFT │ CTRL │  Z   │  X   │  C   │  V   │         (ENCODERS)       │  B   │  N   │  M   │  ,   │  .   │  /   │
        // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-       //                      │  ALT │LOWER │ SPACE  │ │  PAUSE ││  PAUSE │ │ SPACE  │RAISE │ WIN  │
-       //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯            
-            display-name = "Colemak";
+       //                      │  CMD │LOWER │ SPACE  │ │  PLAY  ││  MUTE  │ │  RET   │RAISE │ RALT │
+       //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
+            display-name = "QWERTY";
             bindings = <
                 &kp ESC      &kp Q           &kp W   &kp E   &kp R   &kp T             &kp Y &kp U  &kp I    &kp O           &kp P           &kp BSPC
                 &kp TAB      &kp A           &kp S   &kp D   &kp F   &kp G             &kp H &kp J  &kp K    &kp L           &kp SEMI        &kp SQT
@@ -99,24 +96,24 @@
                                     &kp LCMD      &mo _LOWER      &kp SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &kp RET     &mo _RAISE      &kp RALT
                                                          
             >;
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp RIGHT LEFT>;
         };
 
         lower_layer {
         // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-        // │ ESC  │      │      │      │      │      │                          │  (   │  )   │  =   │  &   │  |   │ DEL  │
+        // │ ESC  │  1   │  2   │  3   │  4   │  5   │                          │  6   │  7   │  8   │  9   │  0   │ BSPC │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │      │      │                          │  {   │  }   │  _   │  $   │  #   │   "  │
+        // │ TAB  │ C-UP │C-LEFT│C-RGHT│ LEFT │ RGHT │                          │ LEFT │ DOWN │  UP  │ RGHT │  9   │  0   │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │      │      │                          │  [   │  ]   │  <   │  >   │  \   │ ENT  │
+        // │ SHFT │ PREV │ NEXT │VOL_DN│VOL_UP│ PLAY │                          │ HOME │ END  │ PGUP │ PGDN │PSCRN │ SHFT │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │  PREV  ││  NEXT  │ │  ENTER │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯    
+        //                      │      │      │ SPACE  │ │        ││        │ │  RET   │RAISE │      │
+        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Lower";        
             bindings = <
                 &kp ESC    &kp N1        &kp N2          &kp N3          &kp N4          &kp N5              &kp N6    &kp N7    &kp N8    &kp N9     &kp N0     &kp BSPC
                 &kp TAB    &kp RC(UP)    &kp RC(LEFT)    &kp RC(RIGHT)   &kp LEFT        &kp RIGHT           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp N9     &kp N0
-                &kp LSHFT  &kp C_PREV    &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &kp PSCRN  &kp RSHFT
+                &kp LSHFT  &kp TILDE     &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &kp PSCRN  &kp RSHFT
                                           &trans      &trans      &kp SPACE                     &kp RET     &mo _RAISE      &trans
             >;
             
@@ -125,80 +122,22 @@
         
         raise_layer {
         // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-        // │ ESC  │  /   │  1   │  2   │  3   │  -   │                          │  F1  │  F2  │  F3  │  F4  │      │      │
+        // │      │  !   │  @   │  #   │  $   │  %   │                          │  ^   │  &   │  *   │  (   │  )   │ BSPC │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │  *   │  4   │  5   │  6   │  +   │                          │  F5  │  F6  │  F7  │  F8  │      │      │
+        // │      │ RECT │ RECT │ RECT │ RECT │  \   │                          │  -   │  =   │  [   │  ]   │  \   │  `   │
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │  %   │  7   │  8   │  9   │  0   │                          │  F9  │  F10 │ F11  │  F1  │      │      │
+        // │      │ RECT │ RECT │ RECT │ RECT │  "   │                          │  _   │  +   │  {   │  }   │  |   │  ~   │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │  PAUSE ││  PAUSE │ │ SPACE  │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯   
-            display-name = "Raise";         
+        //                      │      │      │ SPACE  │ │  PLAY  ││  MUTE  │ │ SPACE  │      │      │
+        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
+            display-name = "Raise";
             bindings = <
                 &trans &kp EXCL              &kp AT          &kp HASH        &kp DLLR                &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK   &kp LPAR    &kp RPAR   &kp BSPC
                 &trans &kp RC(LA(LEFT))      &kp RC(LA(U))   &kp RC(LA(I))   &kp RC(LA(RIGHT))       &kp BSLH   &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT    &kp BSLH   &kp GRAVE
                 &trans &kp RC(LA(RET))       &kp RC(LA(J))   &kp RC(LA(K))   &kp RC(LA(RET))         &kp DQT    &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC    &kp PIPE   &kp TILDE
-                                         &trans  &mo 3 &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp SPACE  &trans   &trans
+                                         &trans  &trans &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp SPACE  &trans   &trans
             >;
 
-        };
-
-        space_right_layer {
-        // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-        // │ ESC  │      │      │  €   │  £   │  Ğ   │                          │      │      │      │      │      │      │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │  !   │  @   │  Ş   │  ₺   │      │                          │      │      │      │      │      │      │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │  Ç   │      │      │                          │      │      │      │      │      │      │
-        // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │  PAUSE ││  PAUSE │ │ SPACE  │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
-            display-name = "Space R";            
-            bindings = <
-                &kp ESC      &trans    &trans     &kp RA(E)        &kp  RA(N2)     &kp LBKT                      &trans            &trans                  &trans          &trans   &trans    &trans
-                &trans       &kp EXCL  &kp RA(Q)  &kp SEMI         &kp  RA(T)      &trans                        &trans            &trans                  &trans          &trans   &trans    &trans
-                &trans       &trans    &trans     &ht LSHFT  DOT   &trans          &trans                        &trans            &trans                  &trans          &trans   &trans    &trans
-                                       &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &lt _SPACE_RIGHT SPACE          &mo _RAISE     &kp RIGHT_GUI
-                >;
-        };
-
-        space_left_layer {
-        // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-        // │      │      │      │      │      │      │                          │      │      │  Ü   │      │  :   │ DEL  │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │      │      │                          │      │      │  I   │  I   │  Ö   │   `  │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │      │      │                          │      │      │  ^   │  ~   │  ?   │ ENT  │
-        // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │RGB_TOG ││ EP_TOG │ │ SPACE  │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
-            display-name = "Space L";            
-            bindings = <
-                &trans       &trans    &trans     &trans         &trans             &trans                     &trans          &trans      &kp RBKT            &trans         &kp LS(SLASH)   &kp DEL
-                &trans       &trans    &trans     &trans         &trans             &trans                     &trans          &trans      &kp LS(I)           &kp I          &kp COMMA       &kp RA(NON_US_HASH)
-                &trans       &trans    &trans     &trans         &trans             &trans                     &trans          &trans      &ht RSHFT RS(N3)    &kp RA(RBKT)   &kp UNDER       &trans
-                                       &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE       &rgb_ug RGB_TOG  &ext_power EP_TOG     &lt _SPACE_RIGHT SPACE          &mo _RAISE     &kp RIGHT_GUI
-            >;
-            sensor-bindings = <&rgb_encoder_left &rgb_encoder_right>;
-        };
-
-        navigation_layer {
-        // ╭──────┬──────┬──────┬──────┬──────┬──────╮                          ╭──────┬──────┬──────┬──────┬──────┬──────╮
-        // │ ESC  │      │      │      │      │      │                          │C_PREV│ PGUP │  UP  │      │      │      │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │NAV T │      │                          │ HOME │ LEFT │ DOWN │ RGHT │ END  │MPLY  │
-        // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
-        // │      │      │      │      │      │      │                          │C_NEXT│PGDOWN│      │VLDOWN│ VLUP │MUTE  │
-        // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │  PAUSE ││  PAUSE │ │ SPACE  │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯   
-            display-name = "Navi";     
-            bindings = <
-                &kp ESC      &trans    &trans     &trans           &trans       &trans       &kp C_PREV              &kp PG_UP   &kp UP                  &trans         &trans         &trans
-                &trans       &trans    &trans     &trans           &trans       &trans       &kp HOME                &kp LEFT    &kp DOWN                &kp RIGHT      &kp END        &kp C_PLAY_PAUSE
-                &trans       &trans    &trans     &trans           &trans       &trans       &kp C_NEXT              &kp PG_DN   &none                   &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
-                                       &kp LALT  &lt _LOWER TAB    &lt _SPACE_LEFT SPACE         &kp C_PLAY_PAUSE  &kp C_MUTE       &lt _SPACE_RIGHT SPACE          &mo _RAISE     &kp RIGHT_GUI
-            >;
         };
 
         adjust_layer {
@@ -209,8 +148,8 @@
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
         // │      │      │      │      │      │      │                          │RESET │ BOOT │      │O_USB │O_BLE │OUTTOG│
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  ALT │LOWER │ SPACE  │ │  PAUSE ││  PAUSE │ │ SPACE  │RAISE │ WIN  │
-        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯    
+        //                      │      │      │        │ │        ││        │ │        │      │      │
+        //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Adjust";        
             bindings = <
                 &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG            &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4        &bt BT_CLR
