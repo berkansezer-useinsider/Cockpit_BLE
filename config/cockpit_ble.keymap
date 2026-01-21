@@ -107,14 +107,14 @@
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
         // │ SHFT │  ~   │ NEXT │VOL_DN│VOL_UP│ PLAY │                          │ HOME │ END  │ PGUP │ PGDN │      │      │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  CMD │      │  ALT   │ │        ││        │ │  RET   │RAISE │ RALT │
+        //                      │  CMD │      │  ALT   │ │        ││        │ │  RET   │ADJUST│ RALT │
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Lower";        
             bindings = <
                 &kp ESC    &kp N1        &kp N2          &kp N3          &kp N4          &kp N5              &kp N6    &kp N7    &kp N8    &kp N9     &kp N0     &kp BSPC
                 &kp TAB    &kp RC(UP)    &kp RC(LEFT)    &kp RC(RIGHT)   &kp LEFT        &kp RIGHT           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans     &trans
                 &kp LSHFT  &kp TILDE     &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PLAY_PAUSE    &kp HOME  &kp END   &kp PG_UP &kp PG_DN  &trans     &trans
-                                          &kp LCMD      &trans      &kp LALT                     &kp RET     &mo _RAISE      &kp RALT
+                                          &kp LCMD      &trans      &kp LALT                     &kp RET     &mo _ADJUST    &kp RALT
             >;
             
             
@@ -128,14 +128,14 @@
         // ├──────┼──────┼──────┼──────┼──────┼──────┤                          ├──────┼──────┼──────┼──────┼──────┼──────┤
         // │      │ RECT │ RECT │ RECT │ RECT │  "   │                          │  _   │  +   │  {   │  }   │  |   │  ~   │
         // ╰──────┴──────┴──────┼──────┼──────┼──────┴─╮ ╭────────╮╭────────╮ ╭─┴──────┼──────┼──────┼──────┴──────┴──────╯
-        //                      │  CMD │      │ SPACE  │ │  PLAY  ││  MUTE  │ │  RET   │      │ RALT │
+        //                      │  CMD │ADJUST│ SPACE  │ │  PLAY  ││  MUTE  │ │  RET   │      │ RALT │
         //                      ╰──────┴──────┴────────╯ ╰────────╯╰────────╯ ╰────────┴──────┴──────╯
             display-name = "Raise";
             bindings = <
                 &trans &kp EXCL              &kp AT          &kp HASH        &kp DLLR                &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK   &kp LPAR    &kp RPAR   &kp BSPC
                 &trans &kp RC(LA(LEFT))      &kp RC(LA(U))   &kp RC(LA(I))   &kp RC(LA(RIGHT))       &kp BSLH   &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT    &kp BSLH   &kp GRAVE
                 &trans &kp RC(LA(RET))       &kp RC(LA(J))   &kp RC(LA(K))   &kp RC(LA(RET))         &kp DQT    &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC    &kp PIPE   &kp TILDE
-                                         &kp LCMD  &trans &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp RET  &trans   &kp RALT
+                                         &kp LCMD  &mo _ADJUST &kp SPACE          &kp C_PLAY_PAUSE  &kp C_MUTE       &kp RET  &trans   &kp RALT
             >;
 
         };
