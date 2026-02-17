@@ -5,7 +5,7 @@ config BOARD
 	default "cockpit_ble"
 
 config ZMK_KEYBOARD_NAME
-    default "Cockpit BLE"
+    default "seksilahmacun31"
 
 config USB_DEVICE_MANUFACTURER
 	default "ozkancelik.com"
